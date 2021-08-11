@@ -1,7 +1,7 @@
 <template>
   <div>
-    <search></search>
-    <gif-list :gifs='gifs'></gif-list>
+    <search @fetch-gifs="fetchGifs"></search>
+    <gif-list :gifs="gifs"></gif-list>
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
   data(){
     return {
       gifs:[]
+    }
+  },
+  methods:{
+    fetchGifs(result){
+      this.gifs = result
     }
   }
 }
