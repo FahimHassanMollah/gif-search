@@ -10,13 +10,26 @@
 <script>
 
 import Gif from './Gif.vue'
+// const options = {
+//   root: null,
+//   threshold: 0
+// };
 export default {
   components: { Gif },
     name:"GifList",
     props:['gifs'],
+    data(){
+      return {
+         observer: null
+      }
+    },
     created(){
       console.log(this.gifs)
-    }
+    },
+    // mounted(){
+    //    this.observer = new IntersectionObserver(this.callback, options);
+    // this.observer.observe(this.$refs.divAsTarget);
+    // }
 
 }
 
