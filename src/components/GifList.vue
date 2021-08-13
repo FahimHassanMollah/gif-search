@@ -20,7 +20,7 @@ export default {
     props:['gifs'],
     data(){
       return {
-         observer: null
+        
       }
     },
     created(){

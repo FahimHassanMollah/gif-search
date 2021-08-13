@@ -18,6 +18,7 @@ export default {
     return {
       imgSrc:this.gif.urls.full,
       time:null,
+      observer:null
      
     }
   },
@@ -25,10 +26,17 @@ export default {
     this.imgSrc =this.imgSrc+"&w=10"
   },
   mounted(){
-      clearTimeout(this.time);
+      this.observer = new IntersectionObserver(([entry])=>{
+        if (entry && entry.isIntersecting) {
+          console.log('intersecting')
+           clearTimeout(this.time);
       this.time = setTimeout(() => {
          this.imgSrc =this.imgSrc+"&w=1000"
       }, 800);
+        }
+      })
+      this.observer.observe(this.$el)
+     
   },
   methods:{
    
