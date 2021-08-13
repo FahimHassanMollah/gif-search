@@ -21,7 +21,7 @@ export default {
     },
     methods:{
        async getGifs(){
-           const response = await axios.get(`https://api.unsplash.com/search/photos?query=${this.searchKey}&client_id=-T3MrsbumjZ4Xj7wPVLuBpSQ-BbMSF8cthsqTYy4LI4`)
+           const response = await axios.get(`https://api.unsplash.com/search/photos?query=${this.searchKey}&client_id=-T3MrsbumjZ4Xj7wPVLuBpSQ-BbMSF8cthsqTYy4LI4&per_page=30`)
             console.log(response.data)
             this.$emit('fetch-gifs',response.data.results)
 
@@ -31,7 +31,7 @@ export default {
              this.timeOut = setTimeout(() => {
                 //   this.$emit('fetch-gifs',[])
                  this.getGifs()
-             }, 900);
+             }, 500);
         }
     },
    
